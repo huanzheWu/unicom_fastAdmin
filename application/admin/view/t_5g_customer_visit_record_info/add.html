@@ -1,0 +1,430 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Dealer_input_info_person')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-dealer_input_info_person" data-rule="required" class="form-control" name="row[dealer_input_info_person]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Dealer_check_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            
+            <div class="radio">
+            {foreach name="dealerCheckStatusList" item="vo"}
+            <label for="row[dealer_check_status]-{$key}"><input id="row[dealer_check_status]-{$key}" name="row[dealer_check_status]" type="radio" value="{$key}" {in name="key" value="未审核"}checked{/in} /> {$vo}</label> 
+            {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Company_client_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-company_client_name" data-rule="required" class="form-control" name="row[company_client_name]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Company_register_year')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-company_register_year" class="form-control datetimepicker" data-date-format="YYYY" data-use-current="true" name="row[company_register_year]" type="text" value="{:date('Y')}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Company_register_capital')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-company_register_capital" class="form-control selectpicker" name="row[company_register_capital]">
+                {foreach name="companyRegisterCapitalList" item="vo"}
+                    <option value="{$key}" {in name="key" value="待完善"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Company_business')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-company_business" class="form-control selectpicker" name="row[company_business]">
+                {foreach name="companyBusinessList" item="vo"}
+                    <option value="{$key}" {in name="key" value="其他行业"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Company_detail_business')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-company_detail_business" class="form-control selectpicker" name="row[company_detail_business]">
+                {foreach name="companyDetailBusinessList" item="vo"}
+                    <option value="{$key}" {in name="key" value="其他行业"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Company_nature')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-company_nature" class="form-control selectpicker" name="row[company_nature]">
+                {foreach name="companyNatureList" item="vo"}
+                    <option value="{$key}" {in name="key" value="其他"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Company_requirement')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-company_requirement" class="form-control selectpicker" name="row[company_requirement]">
+                {foreach name="companyRequirementList" item="vo"}
+                    <option value="{$key}" {in name="key" value="其他"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Company_main_business')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-company_main_business" data-rule="required" class="form-control" name="row[company_main_business]" type="text" value="（百度、天眼查均可，不超过 40 字）">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Company_remark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-company_remark" data-rule="required" class="form-control" name="row[company_remark]" type="text" value="（1、上市公司;2、人员规模;3、母公司等信息）">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Company_aeo_info')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-company_aeo_info" data-rule="required" class="form-control" name="row[company_aeo_info]" type="text" value="（格式：所属分公司+部门+职位+姓名）">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Subscribe_department')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-subscribe_department" class="form-control selectpicker" name="row[subscribe_department]">
+                {foreach name="subscribeDepartmentList" item="vo"}
+                    <option value="{$key}" {in name="key" value="战略客户部"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Subscribe_customer_manager_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-subscribe_customer_manager_name" data-rule="required" class="form-control" name="row[subscribe_customer_manager_name]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Subscribe_customer_manager_phone')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-subscribe_customer_manager_phone" data-rule="required" class="form-control" name="row[subscribe_customer_manager_phone]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Subscribe_month')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-subscribe_month" class="form-control selectpicker" name="row[subscribe_month]">
+                {foreach name="subscribeMonthList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1月"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Subscribe_date')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-subscribe_date" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="row[subscribe_date]" type="text" value="{:date('Y-m-d')}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Subscribe_period')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-subscribe_period" data-rule="required" class="form-control" name="row[subscribe_period]" type="text" value="格式：10:00-11:00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Customer_present_persons')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-customer_present_persons" class="form-control" name="row[customer_present_persons]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Customer_leader_grade')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-customer_leader_grade" class="form-control selectpicker" name="row[customer_leader_grade]">
+                {foreach name="customerLeaderGradeList" item="vo"}
+                    <option value="{$key}" {in name="key" value="基"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Customer_accompany_persons')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-customer_accompany_persons" data-rule="required" class="form-control" name="row[customer_accompany_persons]" type="text" value="（我司陪同的分公司/部门总,行业总,行业部长的姓名）">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Customer_commentator')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-customer_commentator" data-rule="required" class="form-control" name="row[customer_commentator]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Front_line_state')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            
+            <div class="radio">
+            {foreach name="frontLineStateList" item="vo"}
+            <label for="row[front_line_state]-{$key}"><input id="row[front_line_state]-{$key}" name="row[front_line_state]" type="radio" value="{$key}" {in name="key" value="0"}checked{/in} /> {$vo}</label> 
+            {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Customer_num')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-customer_num" data-rule="required" class="form-control" name="row[customer_num]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Customer_us_num')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-customer_us_num" data-rule="required" class="form-control" name="row[customer_us_num]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Visit_area_time_a')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-visit_area_time_A" data-rule="required" class="form-control" name="row[visit_area_time_A]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Visit_area_time_b')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-visit_area_time_B" data-rule="required" class="form-control" name="row[visit_area_time_B]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Visit_area_time_c')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-visit_area_time_C" data-rule="required" class="form-control" name="row[visit_area_time_C]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Visit_area_time_d')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-visit_area_time_D" data-rule="required" class="form-control" name="row[visit_area_time_D]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Visit_area_time_e')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-visit_area_time_E" data-rule="required" class="form-control" name="row[visit_area_time_E]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Visit_area_time_f')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-visit_area_time_F" data-rule="required" class="form-control" name="row[visit_area_time_F]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Visit_area_time_g')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-visit_area_time_G" data-rule="required" class="form-control" name="row[visit_area_time_G]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Visit_time_total')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-visit_time_total" data-rule="required" class="form-control" name="row[visit_time_total]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Follow_up_visit_character')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-follow_up_visit_character" class="form-control selectpicker" name="row[follow_up_visit_character]">
+                {foreach name="followUpVisitCharacterList" item="vo"}
+                    <option value="{$key}" {in name="key" value="仅参观"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Follow_up_focus_tech_unmanned')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-follow_up_focus_tech_unmanned" data-rule="required" class="form-control selectpicker" name="row[follow_up_focus_tech_unmanned]">
+                {foreach name="followUpFocusTechUnmannedList" item="vo"}
+                    <option value="{$key}" {in name="key" value="否"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Follow_up_focus_tech_remote_assistance')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-follow_up_focus_tech_remote_assistance" data-rule="required" class="form-control selectpicker" name="row[follow_up_focus_tech_remote_assistance]">
+                {foreach name="followUpFocusTechRemoteAssistanceList" item="vo"}
+                    <option value="{$key}" {in name="key" value="否"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Follow_up_focus_tech_mec')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-follow_up_focus_tech_MEC" data-rule="required" class="form-control selectpicker" name="row[follow_up_focus_tech_MEC]">
+                {foreach name="followUpFocusTechMecList" item="vo"}
+                    <option value="{$key}" {in name="key" value="否"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Follow_up_focus_tech_qkl')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-follow_up_focus_tech_QKL" data-rule="required" class="form-control selectpicker" name="row[follow_up_focus_tech_QKL]">
+                {foreach name="followUpFocusTechQklList" item="vo"}
+                    <option value="{$key}" {in name="key" value="否"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Follow_up_focus_tech_ar_vr')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-follow_up_focus_tech_AR_VR" data-rule="required" class="form-control selectpicker" name="row[follow_up_focus_tech_AR_VR]">
+                {foreach name="followUpFocusTechArVrList" item="vo"}
+                    <option value="{$key}" {in name="key" value="否"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Follow_up_focus_tech_wlw')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-follow_up_focus_tech_WLW" data-rule="required" class="form-control selectpicker" name="row[follow_up_focus_tech_WLW]">
+                {foreach name="followUpFocusTechWlwList" item="vo"}
+                    <option value="{$key}" {in name="key" value="否"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Follow_up_focus_tech_yyyw')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-follow_up_focus_tech_YYYW" data-rule="required" class="form-control selectpicker" name="row[follow_up_focus_tech_YYYW]">
+                {foreach name="followUpFocusTechYyywList" item="vo"}
+                    <option value="{$key}" {in name="key" value="否"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Follow_up_focus_tech_other_info')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-follow_up_focus_tech_OTHER_INFO" data-rule="required" class="form-control" name="row[follow_up_focus_tech_OTHER_INFO]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Follow_up_process')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-follow_up_process" class="form-control selectpicker" name="row[follow_up_process]">
+                {foreach name="followUpProcessList" item="vo"}
+                    <option value="{$key}" {in name="key" value="暂无"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Follow_up_demand_detail')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-follow_up_demand_detail" data-rule="required" class="form-control" name="row[follow_up_demand_detail]" type="text" value="(1、尽量详尽，不少于 20 字；2、若有立项签约，务必注明立项项目名称及时间">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Follow_up_limit_reason')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-follow_up_limit_reason" class="form-control selectpicker" name="row[follow_up_limit_reason]">
+                {foreach name="followUpLimitReasonList" item="vo"}
+                    <option value="{$key}" {in name="key" value="暂无"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Project_progress')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-project_progress" class="form-control selectpicker" name="row[project_progress]">
+                {foreach name="projectProgressList" item="vo"}
+                    <option value="{$key}" {in name="key" value="暂无"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Opinion_evaluate')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-opinion_evaluate" class="form-control selectpicker" name="row[opinion_evaluate]">
+                {foreach name="opinionEvaluateList" item="vo"}
+                    <option value="{$key}" {in name="key" value="满意"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Opinion_detail')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-opinion_detail" data-rule="required" class="form-control" name="row[opinion_detail]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
